@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>INFINITUM</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>INFINITUM</h1>
+        <p>Local AI detector</p>
+      </div>
+      <button id="scanPage" type="button">Scan</button>
+    </header>
+
+    <nav class="tabs" aria-label="Detector mode">
+      <button class="tab active" data-mode="text" type="button">Text</button>
+      <button class="tab" data-mode="image" type="button">Image</button>
+    </nav>
+
+    <section id="textPanel">
+      <textarea id="textInput" placeholder="Paste text here, or select text on a page and press Scan."></textarea>
+      <button id="detectText" class="wide" type="button">Detect text</button>
+
+      <section class="result" aria-live="polite">
+        <div class="scoreRow">
+          <div>
+            <p class="label">AI possibility</p>
+            <p id="textScore">Waiting</p>
+          </div>
+          <div id="textMeter" class="meter" style="--value: 0"><span></span></div>
+        </div>
+        <p id="textSummary">Paste at least 80 words for a useful estimate.</p>
+      </section>
+
+      <section>
+        <h2>Signals</h2>
+        <ul id="signals"></ul>
+      </section>
+    </section>
+
+    <section id="imagePanel" hidden>
+      <label class="fileBox">
+        <span>Choose image</span>
+        <input id="imageInput" type="file" accept="image/*">
+      </label>
+      <canvas id="imageCanvas" width="192" height="192"></canvas>
+
+      <section class="result" aria-live="polite">
+        <div class="scoreRow">
+          <div>
+            <p class="label">AI image possibility</p>
+            <p id="imageScore">0%</p>
+          </div>
+          <div id="imageMeter" class="meter" style="--value: 0"><span></span></div>
+        </div>
+        <p id="imageSummary">Upload an image to estimate AI possibility.</p>
+      </section>
+    </section>
+
+    <footer>No GPT, no API, no cloud model. Everything runs locally in the extension.</footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
