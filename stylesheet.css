@@ -28,6 +28,7 @@
 }
 
 body{
+    width:460px;
 
     min-height:100vh;
 
@@ -45,7 +46,7 @@ body{
 
 .popup-wrapper{
 
-    width:420px;
+    width:460px;
 
     padding:20px;
 
